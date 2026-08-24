@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="appTitle">学生ポータル | 入学後サポート</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="login-view" id="loginView" aria-label="Login">
+        <div class="brand-panel">
+          <div class="language-switcher hero-language" data-language-switcher aria-label="Language">
+            <button type="button" class="language-button" data-lang="my">မြန်မာ</button>
+            <button type="button" class="language-button active" data-lang="ja">日本語</button>
+            <button type="button" class="language-button" data-lang="en">English</button>
+            <button type="button" class="language-button" data-lang="vi">Tiếng Việt</button>
+          </div>
+          <div class="brand-mark" aria-hidden="true">
+            <span>学</span>
+          </div>
+          <div>
+            <p class="eyebrow" data-i18n="heroEyebrow">Interview Passed Student Portal</p>
+            <h1 data-i18n="heroTitle">入学手続きから卒業後まで、ひとつのポータルで管理</h1>
+          </div>
+          <div class="journey-preview" aria-label="Student journey">
+            <div class="journey-step active">
+              <span class="step-dot"></span>
+              <strong data-i18n="stageEnrollment">入学手続き</strong>
+              <small data-i18n="stageEnrollmentDesc">本人情報・書類確認</small>
+            </div>
+            <div class="journey-step">
+              <span class="step-dot"></span>
+              <strong data-i18n="stageSchoolLife">在校中</strong>
+              <small data-i18n="stageSchoolLifeDesc">出席・成績・課題</small>
+            </div>
+            <div class="journey-step">
+              <span class="step-dot"></span>
+              <strong data-i18n="stageGraduation">卒業</strong>
+              <small data-i18n="stageGraduationDesc">進路・証明情報</small>
+            </div>
+            <div class="journey-step">
+              <span class="step-dot"></span>
+              <strong data-i18n="stageAfterGraduation">卒業後</strong>
+              <small data-i18n="stageAfterGraduationDesc">就職先・資格更新</small>
+            </div>
+          </div>
+        </div>
+
+        <form class="login-card" id="loginForm">
+          <div>
+            <p class="eyebrow">Student Login</p>
+            <h2 data-i18n="studentLogin">学生ログイン</h2>
+            <p class="helper-text" data-i18n="loginHelp">面接合格後の手続き状況を確認できます。</p>
+          </div>
+          <label>
+            <span data-i18n="studentId">学生ID</span>
+            <input id="studentId" type="text" value="S2026-001" autocomplete="username" />
+          </label>
+          <label>
+            <span data-i18n="password">パスワード</span>
+            <input type="password" value="password" autocomplete="current-password" />
+          </label>
+          <button class="primary-button" type="submit" data-i18n="login">ログイン</button>
+          <p class="sample-note" data-i18n="sampleLogin">サンプル: S2026-001 / password</p>
+        </form>
+      </section>
+
+      <section class="portal-view hidden" id="portalView">
+        <aside class="sidebar">
+          <div class="sidebar-brand">
+            <div class="brand-mark compact" aria-hidden="true"><span>学</span></div>
+            <div>
+              <strong data-i18n="portalName">学生ポータル</strong>
+              <small>After Interview</small>
+            </div>
+          </div>
+          <div class="language-switcher sidebar-language" data-language-switcher aria-label="Language">
+            <button type="button" class="language-button" data-lang="my">မြန်မာ</button>
+            <button type="button" class="language-button active" data-lang="ja">日本語</button>
+            <button type="button" class="language-button" data-lang="en">English</button>
+            <button type="button" class="language-button" data-lang="vi">Tiếng Việt</button>
+          </div>
+          <nav class="nav-list" aria-label="Main menu">
+            <button class="nav-item active" data-view="dashboard" data-i18n="navDashboard">ダッシュボード</button>
+            <button class="nav-item" data-view="profile" data-i18n="navProfile">本人情報</button>
+            <button class="nav-item" data-view="school" data-i18n="navSchool">学校管理情報</button>
+            <button class="nav-item" data-view="career" data-i18n="navCareer">卒業・進路</button>
+            <button class="nav-item" data-view="alumni" data-i18n="navAlumni">卒業後更新</button>
+          </nav>
+          <button class="ghost-button" id="logoutButton" data-i18n="logout">ログアウト</button>
+        </aside>
+
+        <div class="content-area">
+          <header class="topbar">
+            <div>
+              <p class="eyebrow" data-i18n="welcome">Welcome</p>
+              <h2 id="pageTitle" data-title-view="dashboard">ダッシュボード</h2>
+            </div>
+            <div class="student-chip">
+              <span class="avatar" aria-hidden="true">A</span>
+              <div>
+                <strong id="chipName">Aung Min</strong>
+                <small data-i18n="studentStatus">入学手続き中</small>
+              </div>
+            </div>
+          </header>
+
+          <section class="page active" id="dashboardPage">
+            <div class="status-band">
+              <div>
+                <p class="eyebrow" data-i18n="currentStage">Current Stage</p>
+                <h3 data-i18n="currentStageTitle">面接合格後の入学手続き</h3>
+                <p data-i18n="currentStageText">本人情報を入力し、学校からの確認結果を待ってください。</p>
+              </div>
+              <div class="progress-ring" aria-label="Progress 72%">
+                <span>72%</span>
+              </div>
+            </div>
+
+            <div class="journey-board" aria-label="Student journey">
+              <article class="journey-card current">
+                <span>1</span>
+                <h4 data-i18n="stageEnrollment">入学手続き</h4>
+                <p data-i18n="journeyEnrollmentText">本人情報、連絡先、緊急連絡先、希望コースを登録</p>
+              </article>
+              <article class="journey-card">
+                <span>2</span>
+                <h4 data-i18n="stageSchoolLife">在校中</h4>
+                <p data-i18n="journeySchoolText">出席率、成績、課題、お知らせを確認</p>
+              </article>
+              <article class="journey-card">
+                <span>3</span>
+                <h4 data-i18n="stageGraduation">卒業</h4>
+                <p data-i18n="journeyGraduationText">卒業情報、進路、就職活動を管理</p>
+              </article>
+              <article class="journey-card">
+                <span>4</span>
+                <h4 data-i18n="stageAfterGraduation">卒業後</h4>
+                <p data-i18n="journeyAlumniText">就職先、転職、資格、同窓生情報を更新</p>
+              </article>
+            </div>
+
+            <div class="dashboard-grid">
+              <article class="info-card">
+                <h3 data-i18n="nextTasks">次に必要なこと</h3>
+                <ul class="task-list">
+                  <li><input type="checkbox" checked /> <span data-i18n="taskBasic">基本情報の確認</span></li>
+                  <li><input type="checkbox" /> <span data-i18n="taskAddress">住所・電話番号の更新</span></li>
+                  <li><input type="checkbox" /> <span data-i18n="taskEmergency">緊急連絡先の登録</span></li>
+                  <li><input type="checkbox" /> <span data-i18n="taskDocs">入学書類の提出</span></li>
+                </ul>
+              </article>
+              <article class="info-card">
+                <h3 data-i18n="schoolNotices">学校からのお知らせ</h3>
+                <div class="notice-list">
+                  <button data-view-target="school">
+                    <strong data-i18n="noticeOrientation">入学説明会</strong>
+                    <span data-i18n="noticeOrientationText">9月3日 10:00 教室A</span>
+                  </button>
+                  <button data-view-target="profile">
+                    <strong data-i18n="noticeAddress">住所確認</strong>
+                    <span data-i18n="noticeAddressText">本人情報を最新にしてください</span>
+                  </button>
+                  <button data-view-target="career">
+                    <strong data-i18n="noticeCareer">キャリア面談</strong>
+                    <span data-i18n="noticeCareerText">希望進路アンケートを登録できます</span>
+                  </button>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="page" id="profilePage">
+            <div class="section-heading">
+              <p class="eyebrow" data-i18n="profileCategory">学生本人が入力する情報</p>
+              <h3 data-i18n="profileHeading">学生本人が入力・更新する情報</h3>
+            </div>
+            <form class="form-grid" id="profileForm">
+              <label><span data-i18n="fullName">氏名</span><input name="name" value="Aung Min" /></label>
+              <label><span data-i18n="kana">ふりがな</span><input name="kana" value="アウン ミン" /></label>
+              <label><span data-i18n="birthday">生年月日</span><input type="date" name="birthday" value="2004-05-12" /></label>
+              <label><span data-i18n="nationality">国籍</span><input name="nationality" value="Myanmar" /></label>
+              <label><span data-i18n="address">住所</span><input name="address" value="東京都新宿区1-2-3" /></label>
+              <label><span data-i18n="phone">電話番号</span><input name="phone" value="080-1234-5678" /></label>
+              <label><span data-i18n="email">メール</span><input type="email" name="email" value="student@example.com" /></label>
+              <label><span data-i18n="desiredCourse">希望コース</span><select name="course"><option data-i18n="courseIt">ITビジネスコース</option><option data-i18n="courseJapanese">日本語コース</option><option data-i18n="courseCare">介護コース</option></select></label>
+              <label class="wide"><span data-i18n="emergencyContact">緊急連絡先</span><input name="emergency" value="Daw Hla / +95-9-0000-0000" /></label>
+              <label class="wide"><span data-i18n="careerHope">就職希望</span><textarea name="careerHope" data-i18n-input="careerHopeValue">日本でITサポートの仕事を希望しています。</textarea></label>
+              <div class="form-actions wide">
+                <button class="primary-button" type="submit" data-i18n="save">保存する</button>
+                <p id="saveMessage" class="save-message" role="status"></p>
+              </div>
+            </form>
+          </section>
+
+          <section class="page" id="schoolPage">
+            <div class="section-heading">
+              <p class="eyebrow" data-i18n="schoolCategory">学校が管理する情報</p>
+              <h3 data-i18n="schoolHeading">学校が確認・更新する情報</h3>
+            </div>
+            <div class="metric-grid">
+              <article class="metric-card"><small data-i18n="metricStudentNumber">学生番号</small><strong>S2026-001</strong></article>
+              <article class="metric-card"><small data-i18n="metricAttendance">出席率</small><strong>94%</strong></article>
+              <article class="metric-card"><small data-i18n="metricGrade">平均成績</small><strong>A-</strong></article>
+              <article class="metric-card"><small data-i18n="metricAssignments">課題提出</small><strong>8 / 10</strong></article>
+            </div>
+            <div class="table-card">
+              <h3 data-i18n="schoolStatus">学校管理状況</h3>
+              <table>
+                <thead><tr><th data-i18n="tableItem">項目</th><th data-i18n="tableStatus">状況</th><th data-i18n="tableOwner">担当</th></tr></thead>
+                <tbody>
+                  <tr><td data-i18n="rowDocs">入学書類確認</td><td><span class="badge done" data-i18n="statusDone">確認済み</span></td><td data-i18n="ownerOffice">事務局</td></tr>
+                  <tr><td data-i18n="rowTuition">学費確認</td><td><span class="badge pending" data-i18n="statusChecking">確認中</span></td><td data-i18n="ownerAccounting">会計</td></tr>
+                  <tr><td data-i18n="rowAssignments">課題提出状況</td><td><span class="badge alert" data-i18n="statusMissing">2件未提出</span></td><td data-i18n="ownerTeacher">担任</td></tr>
+                  <tr><td data-i18n="rowNotice">学校からのお知らせ</td><td><span class="badge done" data-i18n="statusSent">3件配信</span></td><td data-i18n="ownerSchool">学校</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="page" id="careerPage">
+            <div class="section-heading">
+              <p class="eyebrow">Graduation & Career</p>
+              <h3 data-i18n="careerHeading">卒業・進路情報</h3>
+            </div>
+            <div class="dashboard-grid">
+              <article class="info-card">
+                <h3 data-i18n="careerRegister">進路登録</h3>
+                <label><span data-i18n="expectedGraduation">卒業予定日</span><input type="date" value="2028-03-15" /></label>
+                <label><span data-i18n="desiredPath">希望進路</span><select><option data-i18n="pathWorkJapan">日本で就職</option><option data-i18n="pathStudy">進学</option><option data-i18n="pathReturn">帰国</option><option data-i18n="pathUndecided">未定</option></select></label>
+                <label><span data-i18n="desiredJob">希望職種</span><input data-i18n-value="desiredJobValue" value="ITサポート / 事務" /></label>
+              </article>
+              <article class="info-card">
+                <h3 data-i18n="jobHunting">就職活動</h3>
+                <ul class="timeline-list">
+                  <li><strong data-i18n="resume">履歴書作成</strong><span data-i18n="waitingSchool">学校確認待ち</span></li>
+                  <li><strong data-i18n="interviewPractice">面接練習</strong><span data-i18n="canReserve">予約可能</span></li>
+                  <li><strong data-i18n="companyIntro">企業紹介</strong><span data-i18n="threeCompanies">3社候補あり</span></li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="page" id="alumniPage">
+            <div class="section-heading">
+              <p class="eyebrow" data-i18n="alumniCategory">卒業後に更新する情報</p>
+              <h3 data-i18n="alumniHeading">卒業生・Alumni 情報</h3>
+            </div>
+            <form class="form-grid">
+              <label><span data-i18n="currentCompany">現在の就職先</span><input value="Sakura Tech Co., Ltd." /></label>
+              <label><span data-i18n="jobType">職種</span><input value="IT Support Staff" /></label>
+              <label><span data-i18n="workLocation">勤務地</span><input value="東京都" /></label>
+              <label><span data-i18n="certifications">取得資格</span><input value="JLPT N2, IT Passport" /></label>
+              <label class="wide"><span data-i18n="alumniMemo">転職・近況メモ</span><textarea data-i18n-input="alumniMemoValue">卒業後も学校と連絡を取り、後輩への会社紹介も可能です。</textarea></label>
+              <div class="form-actions wide">
+                <button class="primary-button" type="button" id="alumniSave" data-i18n="updateAlumni">卒業後情報を更新</button>
+                <p id="alumniMessage" class="save-message" role="status"></p>
+              </div>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
